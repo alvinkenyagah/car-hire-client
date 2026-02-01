@@ -8,7 +8,7 @@ export default function Landing() {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/user/vehicles");
+        const res = await fetch("http://localhost:5000/api/vehicles");
         const data = await res.json();
         setVehicles(data.slice(0, 6));
       } catch (err) {
