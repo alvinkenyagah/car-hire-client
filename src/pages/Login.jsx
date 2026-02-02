@@ -5,22 +5,48 @@ import { useNavigate, Link } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
 
+  // const handleLogin = async (data) => {
+  //   const res = await fetch("http://localhost:5000/api/auth/login", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   });
+  //   const result = await res.json();
+  //   if (!res.ok) throw new Error(result.message || "Login failed");
+    
+  //   // save JWT to localStorage
+  //   localStorage.setItem("token", result.token);
+    
+  //   // Show success message
+  //   alert("✅ Login successful! Welcome back.");
+  //   navigate("/dashboard");
+  // };
+
+
   const handleLogin = async (data) => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    if (!res.ok) throw new Error(result.message || "Login failed");
-    
-    // save JWT to localStorage
-    localStorage.setItem("token", result.token);
-    
-    // Show success message
-    alert("✅ Login successful! Welcome back.");
-    navigate("/dashboard");
-  };
+  const res = await fetch("http://localhost:5000/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const result = await res.json();
+  if (!res.ok) throw new Error(result.message || "Login failed");
+
+  // Save auth data
+  localStorage.setItem("token", result.token);
+  localStorage.setItem("user", JSON.stringify(result.user));
+
+  alert("✅ Login successful! Welcome back.");
+
+  // Role-based redirect
+  if (result.user.role === "admin") {
+    navigate("/admin/dashboard");
+  } else {
+    navigate("/vehicles");
+  }
+};
+
 
   return (
     <div className="min-h-screen flex">

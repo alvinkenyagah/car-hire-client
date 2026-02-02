@@ -10,7 +10,7 @@ export default function Landing() {
       try {
         const res = await fetch("http://localhost:5000/api/vehicles");
         const data = await res.json();
-        setVehicles(data.slice(0, 6));
+        setVehicles(data.slice(0, 3));
       } catch (err) {
         console.error(err);
       } finally {
