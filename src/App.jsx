@@ -12,7 +12,7 @@ import Vehicles from "./pages/Vehicle";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddVehicle from "./pages/admin/AddVehicle";
 import AdminRoute from "./components/AdminRoute";
-
+import VehicleDetail from "./pages/VehicleDetail.jsx";
 function App() {
   return (
     <Router>
@@ -23,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/vehicles" element={<Vehicles />} />
+         <Route path="/vehicles/:id" element={<VehicleDetail />} />
 
         {/* Admin routes */}
         <Route

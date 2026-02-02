@@ -342,6 +342,15 @@ export default function Vehicles() {
           </div>
         ) : viewMode === "grid" ? (
           // Grid View
+
+
+
+          <div
+              key={vehicles._id}
+              onClick={() => navigate(`/vehicles/${vehicles._id}`)}  // ✅ Add this
+              className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2 cursor-pointer"  // ✅ Add cursor-pointer
+            >
+
           <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
             {filteredVehicles.map((vehicle) => (
               <div
@@ -421,8 +430,21 @@ export default function Vehicles() {
               </div>
             ))}
           </div>
+          </div>
         ) : (
+
+
+          
           // List View
+
+
+          <div
+              key={vehicles._id}
+              onClick={() => navigate(`/vehicles/${vehicles._id}`)}  // ✅ Add this
+              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 cursor-pointer"  // ✅ Add cursor-pointer
+            >
+
+
           <div className="space-y-6">
             {filteredVehicles.map((vehicle) => (
               <div
@@ -494,17 +516,24 @@ export default function Vehicles() {
                         </p>
                         <p className="text-sm text-gray-500">per day</p>
                       </div>
-                      <button
-                        onClick={() => alert("Hire functionality coming soon")}
-                        className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all font-bold shadow-md hover:shadow-lg"
-                      >
-                        Hire Now
-                      </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent card click
+                      navigate(`/vehicles/${vehicle._id}`);
+                    }}
+                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all font-medium shadow-md hover:shadow-lg"
+                  >
+                    View Details
+                  </button>
+
+
                     </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
           </div>
         )}
       </div>
