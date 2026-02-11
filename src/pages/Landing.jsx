@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import HeroScene from "./HeroScene.jsx";
 export default function Landing() {
   const [vehicles, setVehicles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,11 +25,13 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
+        {/* <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 -left-4 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-xl animate-pulse"></div>
           <div className="absolute top-0 -right-4 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-xl animate-pulse delay-1000"></div>
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-xl animate-pulse delay-2000"></div>
-        </div>
+        </div> */}
+
+        <HeroScene />
 
         <div className="relative flex flex-col justify-center items-center text-center py-24 md:py-32 px-4">
           {/* Badge */}
@@ -131,7 +133,7 @@ export default function Landing() {
               {vehicles.map((vehicle) => (
                 <Link
                   key={vehicle._id}
-                  to="/vehicles"
+                  to={`/vehicles/${vehicle._id}`}
                   className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
                 >
                   {/* Image Container */}

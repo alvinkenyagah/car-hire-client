@@ -342,20 +342,12 @@ export default function Vehicles() {
           </div>
         ) : viewMode === "grid" ? (
           // Grid View
-
-
-
-          <div
-              key={vehicles._id}
-              onClick={() => navigate(`/vehicles/${vehicles._id}`)}  // ✅ Add this
-              className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2 cursor-pointer"  // ✅ Add cursor-pointer
-            >
-
           <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
             {filteredVehicles.map((vehicle) => (
               <div
                 key={vehicle._id}
-                className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
+                onClick={() => navigate(`/vehicles/${vehicle._id}`)}
+                className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-2 cursor-pointer"
               >
                 {/* Image Container */}
                 <div className="relative overflow-hidden h-56">
@@ -364,22 +356,10 @@ export default function Vehicles() {
                     alt={vehicle.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Badges */}
                   <div className="absolute top-4 right-4 flex flex-col gap-2">
                     <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                       Available
                     </span>
-                    <span className="bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-1 rounded-full text-xs font-semibold shadow-lg capitalize">
-                      {vehicle.type}
-                    </span>
-                  </div>
-                  {/* Quick Actions */}
-                  <div className="absolute top-4 left-4">
-                    <button className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-lg">
-                      <svg className="w-5 h-5 text-gray-600 hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </button>
                   </div>
                 </div>
 
@@ -388,68 +368,28 @@ export default function Vehicles() {
                   <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
                     {vehicle.name}
                   </h3>
+                  <p className="text-gray-600 text-sm mb-4">{vehicle.brand}</p>
                   
-                  <div className="flex items-center gap-2 mb-3">
-                    <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                    </svg>
-                    <p className="text-gray-600 text-sm font-medium">{vehicle.brand}</p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                      <span>5 Seats</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      <span className="capitalize">{vehicle.type}</span>
-                    </div>
-                  </div>
-
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div>
-                      <p className="text-2xl font-bold text-gray-900">
-                        Ksh {vehicle.ratePerDay.toLocaleString()}
-                      </p>
-                      <p className="text-sm text-gray-500">per day</p>
-                    </div>
-                    <button
-                      onClick={() => alert("Hire functionality coming soon")}
-                      className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all font-medium shadow-md hover:shadow-lg"
-                    >
-                      Hire Now
+                    <p className="text-2xl font-bold text-gray-900">
+                      Ksh {vehicle.ratePerDay.toLocaleString()}
+                    </p>
+                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      View
                     </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          </div>
         ) : (
-
-
-          
           // List View
-
-
-          <div
-              key={vehicles._id}
-              onClick={() => navigate(`/vehicles/${vehicles._id}`)}  // ✅ Add this
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 cursor-pointer"  // ✅ Add cursor-pointer
-            >
-
-
           <div className="space-y-6">
             {filteredVehicles.map((vehicle) => (
               <div
                 key={vehicle._id}
-                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200"
+                onClick={() => navigate(`/vehicles/${vehicle._id}`)}
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 cursor-pointer"
               >
                 <div className="flex flex-col md:flex-row">
                   {/* Image */}
@@ -479,7 +419,10 @@ export default function Vehicles() {
                             <p className="text-gray-600 font-medium">{vehicle.brand}</p>
                           </div>
                         </div>
-                        <button className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        <button 
+                          onClick={(e) => e.stopPropagation()}
+                          className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                        >
                           <svg className="w-5 h-5 text-gray-600 hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                           </svg>
@@ -516,24 +459,20 @@ export default function Vehicles() {
                         </p>
                         <p className="text-sm text-gray-500">per day</p>
                       </div>
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent card click
-                      navigate(`/vehicles/${vehicle._id}`);
-                    }}
-                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all font-medium shadow-md hover:shadow-lg"
-                  >
-                    View Details
-                  </button>
-
-
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/vehicles/${vehicle._id}`);
+                        }}
+                        className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg hover:from-blue-700 hover:to-indigo-800 transition-all font-medium shadow-md hover:shadow-lg"
+                      >
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
           </div>
         )}
       </div>
