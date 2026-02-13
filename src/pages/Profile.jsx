@@ -4,10 +4,12 @@ const API_URL = "http://localhost:5000/api";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
-  const [form, setForm] = useState({
-    name: "",
-    phone: ""
-  });
+const [form, setForm] = useState({
+  name: "",
+  phone: "",
+  idNumber: ""
+});
+
 
   const [files, setFiles] = useState({
     portrait: null,
@@ -30,10 +32,12 @@ export default function Profile() {
 
       const data = await res.json();
       setUser(data);
-      setForm({
+        setForm({
         name: data.name || "",
-        phone: data.phone || ""
-      });
+        phone: data.phone || "",
+        idNumber: data.idNumber || ""
+        });
+
     };
 
     fetchProfile();
@@ -179,6 +183,22 @@ export default function Profile() {
             placeholder="Phone"
             className="w-full border p-2 rounded"
           />
+        <input
+        type="text"
+        inputMode="numeric"
+        pattern="[0-9]*"
+        name="idNumber"
+        value={form.idNumber}
+        onChange={(e) => {
+            const onlyNums = e.target.value.replace(/\D/g, "");
+            setForm({ ...form, idNumber: onlyNums });
+        }}
+        placeholder="National ID Number"
+        className="w-full border p-2 rounded"
+        disabled={user.idNumber}
+        />
+
+
 
           <button className="bg-blue-600 text-white px-4 py-2 rounded">
             Update
