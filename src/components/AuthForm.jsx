@@ -27,11 +27,28 @@ export default function AuthForm({ type, onSubmit }) {
       setError("Password must be at least 8 characters long");
       return;
     }
+
+    // Validate name for signup
+    if (type === "signup" && !name.trim()) {
+      setError("Please provide your name");
+      return;
+    }
+
+    // Validate phone for signup
+    if (type === "signup" && !phone.trim()) {
+      setError("Please provide your phone number");
+      return;
+    }
     
     setIsLoading(true);
 
     try {
-      await onSubmit({ email, password, ...(type === "signup" && { name, phone }) });
+      // Prepare data based on type
+      const submitData = type === "signup" 
+        ? { email, password, name, phone }
+        : { email, password };
+      
+      await onSubmit(submitData);
     } catch (err) {
       setError(err.message || "Something went wrong");
     } finally {

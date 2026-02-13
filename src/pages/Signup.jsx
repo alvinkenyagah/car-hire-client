@@ -6,13 +6,20 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const handleSignup = async (data) => {
+    console.log("Sending signup data:", data); // Debug log
+    
     const res = await fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    
     const result = await res.json();
-    if (!res.ok) throw new Error(result.message || "Signup failed");
+    console.log("Server response:", result); // Debug log
+    
+    if (!res.ok) {
+      throw new Error(result.message || "Signup failed");
+    }
     
     // Show success message
     alert("🎉 Account created successfully! Please wait for admin approval.");
@@ -25,7 +32,17 @@ export default function Signup() {
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
         <div className="w-full max-w-md">
           {/* Back to Home Link */}
-
+          <div className="mb-6">
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Home
+            </Link>
+          </div>
 
           <AuthForm type="signup" onSubmit={handleSignup} />
         </div>

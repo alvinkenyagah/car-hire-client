@@ -203,51 +203,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-lg text-gray-600">
-              Rent a car in three simple steps
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span className="text-3xl font-bold text-white">1</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Choose Your Car</h3>
-              <p className="text-gray-600">
-                Browse our diverse fleet and select the perfect vehicle for your journey
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span className="text-3xl font-bold text-white">2</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Book Online</h3>
-              <p className="text-gray-600">
-                Complete your reservation with our secure and easy booking system
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span className="text-3xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Hit the Road</h3>
-              <p className="text-gray-600">
-                Pick up your car and enjoy the freedom of the open road
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Call-to-Action Section */}
       <section className="relative py-24 px-4 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden">

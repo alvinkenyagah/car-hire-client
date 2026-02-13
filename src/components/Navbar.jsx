@@ -351,7 +351,7 @@ export default function Navbar() {
                         </svg>
                         <span className="text-sm font-medium text-gray-700">My Bookings</span>
                       </Link>
-                      <Link
+                      {/* <Link
                         to="/favorites"
                         className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
                       >
@@ -359,7 +359,7 @@ export default function Navbar() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
                         <span className="text-sm font-medium text-gray-700">Favorites</span>
-                      </Link>
+                      </Link> */}
                       <div className="border-t border-gray-100 mt-2 pt-2">
                         <button
                           onClick={handleLogout}
@@ -529,7 +529,7 @@ export default function Navbar() {
                   </svg>
                   Profile Settings
                 </Link>
-                <Link
+                {/* <Link
                   to="/favorites"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-700 font-medium"
                 >
@@ -537,7 +537,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                   Favorites
-                </Link>
+                </Link> */}
                 <div className="border-t border-gray-200 my-2"></div>
                 <button
                   onClick={handleLogout}

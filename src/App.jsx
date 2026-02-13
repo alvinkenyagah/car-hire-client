@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Vehicles from "./pages/Vehicle";
+import ProfilePage from "./pages/Profile.jsx";
 
 // Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -24,6 +25,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/vehicles" element={<Vehicles />} />
          <Route path="/vehicles/:id" element={<VehicleDetail />} />
+          <Route path="/profile" element={<ProfilePage />} />
+
 
         {/* Admin routes */}
         <Route
