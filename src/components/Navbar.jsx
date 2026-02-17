@@ -88,7 +88,7 @@ export default function Navbar() {
                 >
                   Browse Vehicles
                 </Link>
-                <Link
+                {/* <Link
                   to="/about"
                   className={`px-4 py-2 rounded-lg font-medium transition-all ${
                     isScrolled
@@ -97,7 +97,7 @@ export default function Navbar() {
                   } ${isActivePath("/about") ? (isScrolled ? "bg-gray-100" : "bg-white/20") : ""}`}
                 >
                   About
-                </Link>
+                </Link> */}
                 <div className="w-px h-6 bg-white/30 mx-2"></div>
                 <Link
                   to="/login"
@@ -415,7 +415,7 @@ export default function Navbar() {
                   </svg>
                   Browse Vehicles
                 </Link>
-                <Link
+                {/* <Link
                   to="/about"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-700 font-medium"
                 >
@@ -423,7 +423,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   About
-                </Link>
+                </Link> */}
                 <div className="border-t border-gray-200 my-2"></div>
                 <Link
                   to="/login"

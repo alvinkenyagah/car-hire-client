@@ -56,6 +56,32 @@ export default function VehicleDetail() {
     setShowBookingModal(false);
   };
 
+
+
+              const handleHire = async () => {
+              const res = await fetch("http://localhost:5000/api/hires", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                  vehicleId: vehicle._id,
+                  startDate,
+                  endDate
+                })
+              });
+
+              const data = await res.json();
+              if (!res.ok) return alert(data.message);
+
+              alert("Hire request sent. Await admin approval.");
+            };
+
+
+
+
+
   // Vehicle Type Icons
   const getTypeIcon = (type) => {
     switch (type) {
@@ -512,6 +538,26 @@ export default function VehicleDetail() {
                 >
                   Confirm
                 </button>
+
+
+                  {token ? (
+                    <button
+                      onClick={handleHire}
+                      className="bg-green-600 text-white px-4 py-2 rounded"
+                    >
+                      Request Hire
+                    </button>
+                  ) : (
+                    <p className="text-red-500">
+                      Login to hire this vehicle
+                    </p>
+                  )}
+
+
+
+
+
+
               </div>
             </div>
           </div>

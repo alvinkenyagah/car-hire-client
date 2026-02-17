@@ -8,12 +8,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Vehicles from "./pages/Vehicle";
 import ProfilePage from "./pages/Profile.jsx";
-
+import AdminUsers from "./pages/admin/AdminUsers.jsx";
 // Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddVehicle from "./pages/admin/AddVehicle";
 import AdminRoute from "./components/AdminRoute";
 import VehicleDetail from "./pages/VehicleDetail.jsx";
+import AdminHires from "./pages/admin/AdminHires.jsx";
 function App() {
   return (
     <Router>
@@ -34,6 +35,24 @@ function App() {
           element={
             <AdminRoute>
               <AdminDashboard />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/users"
+          element={
+            <AdminRoute>
+              <AdminUsers />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/hires"
+          element={
+            <AdminRoute>
+              <AdminHires />
             </AdminRoute>
           }
         />
